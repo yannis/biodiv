@@ -15,7 +15,7 @@ body {
   #container header {
     margin: 1.618em 0 2.62em 0; }
     #container header h1 {
-      background: transparent url(/images/UNIGE50.png) no-repeat top left;
+      background: white url(/images/UNIGE50.png) no-repeat top left;
       padding-left: 185px; }
       #container header h1 a {
         border: 0;
