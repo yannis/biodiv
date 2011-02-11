@@ -1,0 +1,23 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: biodiv_development
+  username: yannis
+  password: "2375"
+  host: 127.0.0.1
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: biodiv_test
+  username: yannis
+  password: "2375"
+  host: 127.0.0.1
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: biodiv_production
+  username: biodivmaster
+  password: biodiv@dta$
+  host: localhost

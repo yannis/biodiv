@@ -1,0 +1,42 @@
+!!! 5
+- ie_html :class => 'no-js' do  
+  %head
+    %meta{:charset => "UTF-8"}/
+    %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=edge,chrome=1"}/
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}/
+    %title= @title || t('title_1').html_safe+' '+t('title_2').html_safe
+    %meta{:name => "author", :content => "Yannis Jaquet"}
+    %meta{:name => "description", :content => ""}
+    %meta{:name => "keywords", :content => %{}}
+    %meta{:name => "robots", :content => "all"}/
+    = csrf_meta_tag
+    = favicon_link_tag
+    = stylesheet_link_tag 'reset', 'application'
+    = yield :stylesheet
+    = javascript_include_tag "http://use.typekit.com/fuj6pkt.js",'modernizr-1.6.min.js'
+    = yield :head
+  %body
+    #container
+      %header.group{:role => "banner"}
+        #lang
+          - if session[:locale] == 'en'
+            = link_to 'français' , {:locale => 'fr'}, :id => 'lang'
+          - else
+            = link_to 'english', {:locale => 'en'}, :id => 'lang'
+        %h1
+          = content_tag(:a, :href => root_path, :title => 'Home') do
+            %em= t('title_1')
+            %span=raw t('title_2')
+      #content
+        = yield
+      %footer
+        = link_to t('footer.unige'), 'http://www.unige.ch'
+        – 2011
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    :javascript
+      !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/jquery.min.js"%3E%3C/script%3E'))
+    = javascript_include_tag 'application.js'
+    = yield :javascript
+    = yield :document_ready
+    = javascript_include_tag "http://use.typekit.com/fuj6pkt.js"
+    = javascript_tag %{var _gaq = [['_setAccount', 'UA-5595136-8'], ['_trackPageview']]; (function(d, t) { var g = d.createElement(t), s = d.getElementsByTagName(t)[0]; g.async = true; g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; s.parentNode.insertBefore(g, s); })(document, 'script');}
