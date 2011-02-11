@@ -5,7 +5,6 @@ set :scm, :git
 # set :run_method, :run
 set :ssh_options, { :forward_agent => true }
 set :repository,  "ssh://yannis@129.194.56.197/Users/yannis/gitrepos/biodiv/.git"
-set :use_sudo, false
 
 
 
@@ -23,35 +22,12 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
-# runtime dependencies
-depend :remote, :gem, "bundler", ">=1.0.0.rc.2"
-
-# tasks
 namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
   end
-  
-  desc <<-DESC
-    Starts the application servers. \
-    Please note that this task is not supported by Passenger server.
-  DESC
-  task :start, :roles => :app do
-    logger.info ":start task not supported by Passenger server"
-  end
-
-  desc <<-DESC
-    Stops the application servers. \
-    Please note that this task is not supported by Passenger server.
-  DESC
-  task :stop, :roles => :app do
-    logger.info ":stop task not supported by Passenger server"
-  end
 end
-
-# after 'deploy:update_code', 'deploy:symlink_shared'
-
 namespace :bundler do
   desc "Symlink bundled gems on each release"
   task :symlink_bundled_gems, :roles => :app do
@@ -68,8 +44,5 @@ end
 
 after 'deploy:update_code', 'bundler:symlink_bundled_gems'
 after 'deploy:update_code', 'bundler:install'
-# require 'config/boot'
-require 'hoptoad_notifier/capistrano'
 
-        require 'config/boot'
-        require 'hoptoad_notifier/capistrano'
+require 'hoptoad_notifier/capistrano'
