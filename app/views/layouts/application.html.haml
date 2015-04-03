@@ -1,42 +1,47 @@
 !!! 5
-- ie_html :class => 'no-js' do  
+%html(lang="en")
   %head
-    %meta{:charset => "UTF-8"}/
-    %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=edge,chrome=1"}/
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}/
-    %title= @title || t('title_1').html_safe+' '+t('title_2').html_safe
-    %meta{:name => "author", :content => "Yannis Jaquet"}
-    %meta{:name => "description", :content => ""}
-    %meta{:name => "keywords", :content => %{}}
-    %meta{:name => "robots", :content => "all"}/
-    = csrf_meta_tag
-    = favicon_link_tag
-    = stylesheet_link_tag 'reset', 'application'
-    = yield :stylesheet
-    = javascript_include_tag "http://use.typekit.com/fuj6pkt.js",'modernizr-1.6.min.js'
-    = yield :head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "Biodiv"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    = javascript_include_tag "application"
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
   %body
-    #container
-      %header.group{:role => "banner"}
-        #lang
-          - if session[:locale] == 'en'
-            = link_to 'français' , {:locale => 'fr'}, :id => 'lang'
-          - else
-            = link_to 'english', {:locale => 'en'}, :id => 'lang'
-        %h1
-          = content_tag(:a, :href => root_path, :title => 'Home') do
-            %em= t('title_1')
-            %span=raw t('title_2')
-      #content
-        = yield
+    .navbar.navbar-default.navbar-static-top
+      .container
+        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{href: "http://unige.ch", target: "blank_", title: "Université de Genève"}
+          Université de Genève
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          %ul.nav.navbar-nav
+            %li= link_to "Home", root_path
+          %ul.nav.navbar-nav.navbar-right
+            %li= locale_links
+
+    .container
+      .row
+        .col-lg-12
+          .jumbotron
+            %h1
+              .small Master en Biologie orientation
+              Biodiversité & Systématique
+          = bootstrap_flash
+    .container
+      .row
+        .col-lg-12
+          = yield
       %footer
-        = link_to t('footer.unige'), 'http://www.unige.ch'
-        – 2011
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
-    :javascript
-      !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/jquery.min.js"%3E%3C/script%3E'))
-    = javascript_include_tag 'application.js'
-    = yield :javascript
-    = yield :document_ready
-    = javascript_include_tag "http://use.typekit.com/fuj6pkt.js"
-    = javascript_tag %{var _gaq = [['_setAccount', 'UA-5595136-8'], ['_trackPageview']]; (function(d, t) { var g = d.createElement(t), s = d.getElementsByTagName(t)[0]; g.async = true; g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; s.parentNode.insertBefore(g, s); })(document, 'script');}
+        %p &copy; Company <%= Date.today.year %>

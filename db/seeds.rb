@@ -3,5 +3,7 @@
 #
 # Examples:
 #
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.destroy_all
+User.create!(name: "Yannis", email: 'yannis.jaquet@unige.ch', password: '12345678', password_confirmation: '12345678')

@@ -6,7 +6,13 @@ db/schema.sql
 public/system
 index/*
 db/*.sqlite3
-log/*.log
-tmp/**/*
+log/*
+!/log/.keep
+/tmp
 biodiv.tmproj
 public/cache/*
+biodiv.sublime-project
+biodiv.sublime-workspace
+vendor/rails/*
+
+config/application.yml
