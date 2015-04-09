@@ -4,7 +4,7 @@ development:
   database: biodiv_development
   pool: 5
   username: <%= ENV["DATABASE_USERNAME"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  password: "<%= ENV["DATABASE_PASSWORD"] %>"
   socket: /tmp/mysql.sock
 
 test:
@@ -13,7 +13,7 @@ test:
   database: biodiv_test
   pool: 5
   username: <%= ENV["DATABASE_USERNAME"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  password: "<%= ENV["DATABASE_PASSWORD"] %>"
   socket: /tmp/mysql.sock
 
 staging:
@@ -21,7 +21,7 @@ staging:
   encoding: utf8
   database: biodiv_staging
   username: <%= ENV["DATABASE_USERNAME"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  password: "<%= ENV["DATABASE_PASSWORD"] %>"
   host: localhost
 
 production:
@@ -29,5 +29,5 @@ production:
   encoding: utf8
   database: biodiv_production
   username: <%= ENV["DATABASE_USERNAME"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  password: "<%= ENV['DATABASE_PASSWORD'] %>"
   host: localhost
