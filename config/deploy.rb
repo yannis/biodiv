@@ -76,7 +76,10 @@ namespace :deploy do
 
   task :restart do
     on roles(:app) do
-      execute "/usr/local/bin/eye restart #{fetch(:application)}"
+      execute "/usr/local/bin/eye stop #{fetch(:application)}"
+      execute "/usr/local/bin/eye l #{fetch(:eye_unicorn_config)}"
+      execute "/usr/local/bin/eye start #{fetch(:application)}"
+      # execute "/usr/local/bin/eye restart #{fetch(:application)}"
     end
   end
 

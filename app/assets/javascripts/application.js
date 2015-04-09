@@ -15,3 +15,9 @@
 //= require bootstrap-sprockets
 //= require typekit
 //= require_tree .
+
+$( document ).ready(function() {
+  $('#modal').on('hidden.bs.modal', function (e) {
+    $(this).removeData('bs.modal');
+  })
+});
