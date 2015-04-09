@@ -1,3 +1,4 @@
+ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address => ENV["MAILER_SETTINGS_ADDRESS"],
   :port => 587,
