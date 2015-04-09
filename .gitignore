@@ -16,4 +16,3 @@ biodiv.sublime-workspace
 vendor/rails/*
 
 config/application.yml
-config/database.yml

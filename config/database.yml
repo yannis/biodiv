@@ -1,0 +1,33 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: biodiv_development
+  pool: 5
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  socket: /tmp/mysql.sock
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: biodiv_test
+  pool: 5
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  socket: /tmp/mysql.sock
+
+staging:
+  adapter: mysql2
+  encoding: utf8
+  database: biodiv_staging
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: localhost
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: biodiv_production
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: localhost
