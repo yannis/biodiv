@@ -42,7 +42,7 @@ server '129.194.57.242', user: 'yannis', roles: %w{web app db}
 
 
 task :staging do
-  set :branch, "master"
+  set :branch, "development"
   set :stage, 'staging'
 end
 
@@ -54,7 +54,7 @@ end
 
 set :rails_env, fetch(:stage)
 set :application, "biodiv_#{fetch(:stage)}"
-set :deploy_to, "/var/www/#{fetch(:application)}"
+set :deploy_to, "/Users/yannis/railsapps/#{fetch(:application)}"
 set :eye_unicorn_config, "#{fetch(:deploy_to)}/current/config/unicorn_#{fetch(:stage)}.eye"
 
 # Default value for default_env is {}
@@ -89,6 +89,6 @@ namespace :deploy do
 
 end
 
-before "deploy:restart", "deploy:load_eye"
-after "deploy:cleanup", "deploy:restart"
-after "deploy:restart", "airbrake:deploy"
+# before "deploy:restart", "deploy:load_eye"
+# after "deploy:cleanup", "deploy:restart"
+# after "deploy:restart", "airbrake:deploy"

@@ -35,6 +35,7 @@ group :development do
   gem "quiet_assets"
 
   gem "capistrano"
+  gem 'capistrano-rails'
   gem "capistrano-bundler"
   gem "capistrano-rbenv"
   gem 'capistrano-maintenance', github: "capistrano/maintenance", require: false
