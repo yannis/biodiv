@@ -89,6 +89,9 @@ namespace :deploy do
 
 end
 
-# before "deploy:restart", "deploy:load_eye"
-# after "deploy:cleanup", "deploy:restart"
-# after "deploy:restart", "airbrake:deploy"
+before "deploy:restart", "deploy:load_eye"
+after "deploy:cleanup", "deploy:restart"
+after "deploy:restart", "airbrake:deploy"
+
+        require './config/boot'
+        require 'airbrake/capistrano'
