@@ -20,9 +20,12 @@ module Biodiv
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :fr
 
-    config.sass.load_paths << "vendor/assets/stylesheet"
+    # config.sass.load_paths << "vendor/assets/stylesheet"
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    config.action_mailer.default_url_options = { host: ENV['MAILER_HOST'] }
   end
 end
