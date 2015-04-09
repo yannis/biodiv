@@ -1,0 +1,6 @@
+fr:
+  projects:
+    index:
+      title: "Sujets de master"
+    show:
+      laboratory: "Laboratoire"

@@ -1,0 +1,14 @@
+.modal-header
+  %button.close{type: "button", data: {dismiss: "modal"}, aria: {label: "Close"}}
+    %span{aria: {hidden: "true"}} &times;
+  %h3.modal-title
+    = @project.name
+    %br
+    %small
+      = link_to "permalink", @project
+.modal-body
+  %p
+    = link_to @project.laboratory.name, @project.laboratory.url
+    - if @project.laboratory.address
+      %br=raw @project.laboratory.address
+  =raw @project.description_html

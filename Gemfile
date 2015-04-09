@@ -19,13 +19,11 @@ gem "activeadmin", github: "activeadmin"
 
 gem "rmagick"
 gem "carrierwave"
+gem "redcarpet"
+gem 'friendly_id', '~> 5.1.0'
 
 gem "airbrake"
 
-# gem "capistrano"
-# gem "capistrano-bundler"
-# gem "capistrano-rbenv"
-# gem "capistrano-maintenance"
 
 group :development do
   gem "spring"
@@ -35,10 +33,14 @@ group :development do
   gem "guard-livereload"
   # gem "guard-spring"
   gem "quiet_assets"
+
+  gem "capistrano"
+  gem "capistrano-bundler"
+  gem "capistrano-rbenv"
+  gem 'capistrano-maintenance', github: "capistrano/maintenance", require: false
 end
 
 group :test do
-  gem "rspec-rails"
   # gem "rspec-retry"
   gem "rspec-its"
   gem "capybara"
@@ -50,6 +52,7 @@ end
 
 
 group :development, :test do
+  gem "rspec-rails"
   gem "email_spec"
   gem "byebug"
   gem "factory_girl_rails"
@@ -58,4 +61,5 @@ end
 
 
 group :production do
+  gem "unicorn"
 end

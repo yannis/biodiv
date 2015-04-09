@@ -1,0 +1,21 @@
+.row.institute
+  .col-sm-12.col-md-4
+    - institute.illustrations.each do |illustration|
+      = image_tag illustration.picture.url, class: 'img-responsive'
+  .col-sm-12.col-md-8
+    %h3.institute-name
+      = link_to institute.name, institute.url, target: "_blank"
+    .row
+      .col-md-3
+        - if institute.logo
+          = image_tag institute.logo.picture.url, class: "institute-logo img-responsive"
+      .col-md-9
+        =raw institute.description
+      - if institute.laboratories.present?
+        .col-md-12
+          %h4= t("institutes.show.laboratories.title")
+          %ul
+            - institute.laboratories.each do |laboratory|
+              %li
+                = link_to laboratory.name, laboratory.url, {target: "_blank"}
+

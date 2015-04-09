@@ -1,2 +1,49 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+.row
+  .col-md-8
+    %p.lead.drop-cap
+      = t ".intro"
+  - if @contacts.present?
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          %h2 Contact
+        %ul.list-group
+          - @contacts.each do |contact|
+            %li.list-group-item
+              = mail_to contact.email, contact.name
+.row.home-institutes
+  .col-md-12
+    %h2= t(".institutes")
+  .col-md-12
+    - @institutes.each do |institute|
+      .row.home-institute
+        .col-sm-12.col-md-4
+          - institute.illustrations.each do |illustration|
+            = image_tag illustration.picture.url, class: 'img-responsive'
+        .col-sm-12.col-md-8
+          %h3.home-institute-title
+            = link_to institute.name, institute.url, target: "_blank"
+          .row
+            .col-md-3
+              - if institute.logo
+                = link_to institute.url do
+                  = image_tag(institute.logo.picture.url, class: "home-institute-logo img-responsive")
+            .col-md-9
+              %p.home-institute-description=raw institute.description
+              - if institute.laboratories.present?
+                %h4= t("institutes.show.laboratories.title")
+                %ul
+                  - institute.laboratories.each do |laboratory|
+                    %li
+                      = link_to laboratory.name, laboratory.url, {target: "_blank"}
+
+
+.row.home-projects
+  .col-md-12
+    %h2.home-projects-title= t(".projects")
+    - @projects.each do |project|
+      .well.home-project
+        = link_to project_url(project, format: 'modal'), data: {toggle: "modal", target: "#modal"} do
+          %h4
+            %small= project.laboratory.name
+            %br= project.name

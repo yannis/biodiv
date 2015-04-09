@@ -1,0 +1,45 @@
+$dropcap-float-position: left !default
+$dropcap-font-size: 4em !default
+$dropcap-font-family: inherit !default
+$dropcap-txt-indent: 0 !default
+$dropcap-margin: 10px 10px 0 0 !default
+// $dropcap-margin: 10px 10px 0 0 !default
+$dropcap-padding: 0 10px !default
+// $dropcap-padding: 0 20px !default
+$dropcap-color: inherit !default
+$dropcap-line-height: 1 !default
+$dropcap-bg: transparent !default
+
+=dropcap($float-position, $font-size, $font-family, $txt-indent, $margin, $padding, $color, $line-height, $bg)
+  &:first-letter
+    float: $float-position
+    margin: $margin
+    padding: $padding
+    font-size: $font-size
+    font-family: $font-family
+    line-height: $line-height
+    text-indent: $txt-indent
+    background: $bg
+    color: $color
+
+
+h1, h2, h3, h4, h5
+  color: $biogreen
+  font-family: $font-family-title
+
+a, a:hover, a:active, a:visited
+  color: $biogreen
+  text:
+    decoration: none
+  border-bottom: 1px dotted
+  transition: color 0.5s ease
+a:hover
+  color: $biogreen-lighter
+
+.well
+  a
+    border-bottom: 0
+
+.drop-cap
+  +dropcap($dropcap-float-position, $dropcap-font-size, $dropcap-font-family, $dropcap-txt-indent, $dropcap-margin, $dropcap-padding, $dropcap-color, $dropcap-line-height, $dropcap-bg)
+

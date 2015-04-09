@@ -1,0 +1,7 @@
+.row
+  .col-md-12
+    %h3= project.name
+    %p
+      = link_to project.laboratory.name, project.laboratory.url
+      %br=raw project.laboratory.address
+    = raw project.description_html

@@ -4,7 +4,7 @@ ActiveAdmin.register Institute do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name_en, :name_fr, :description_en, :description_fr, illustrations_attributes: [:id, :picture, :_destroy]
+  permit_params :name_en, :name_fr, :description_en, :description_fr, :url, illustrations_attributes: [:id, :picture, :_destroy], logo_attributes: [:id, :picture, :_destroy]
   #
   # or
   #
@@ -16,24 +16,30 @@ ActiveAdmin.register Institute do
 
 
   form do |f|
-    f.object.errors
-    # f.semantic_errors *f.object.errors.keys
+    # f.object.errors
+    # # f.semantic_errors *f.object.errors.keys
     f.inputs "Details" do
       f.input :name_en
       f.input :name_fr
       f.input :description_en
       f.input :description_fr
+      f.input :url
     end
-    f.inputs "Illustrations" do
-      f.has_many :illustrations do |j|
-        if j.object.new_record?
-          j.input :picture, :as => :file
-        else
-          j.input :_destroy, :as => :boolean, :hint => f.template.image_tag(j.object.picture.url(:thumb_xs))
-        end
+    f.inputs do
+      f.has_many :illustrations, heading: 'Illustrations', allow_destroy: true, new_record: true do |a|
+        a.input :picture, as: :file, hint: (a.object.new_record? ? nil : image_tag(a.object.picture.url(:thumb_xs)))
+      end
+    end
+    f.inputs "Logo", for: [:logo, f.object.logo || Logo.new] do |j|
+      if f.object.logo.present?
+        j.input :_destroy, as: :boolean, hint: image_tag(j.object.picture.url(:thumb_xs))
+      else
+        j.input :picture, as: :file
       end
     end
     f.actions
   end
 
 end
+
+

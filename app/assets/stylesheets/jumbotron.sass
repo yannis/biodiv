@@ -1,0 +1,40 @@
+a.unige_logo
+  display: block
+  +replace-text-with-dimensions("UNIGE200.png", 170, 49)
+  border: 0
+  &:hover, &:active
+    border: 0
+
+.jumbotron
+  background: white
+  font-family: $font-family-title
+  // padding-top: 0
+  h1
+    color: $biogreen
+    margin-top: 10px
+    small
+      color: $biogreen-lighter
+  a, a:hover, a:active
+    border: 0
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min)
+  nav
+    background-color: red
+  // .navbar-brand, .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
+  //   margin: 10px
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min)
+  nav
+    background-color: yelow
+  // .navbar-brand, .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
+  //   margin-left: 10px
+
+// Large devices (large desktops, 1200px and up)
+@media (min-width: $screen-lg-min)
+  nav
+    background-color: blue
+
+// @media (min-width: $screen-xlg-min)
+//   background-color: orange
