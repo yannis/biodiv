@@ -8,6 +8,8 @@ nav.navbar
 .breadcrumb
   background-color: white
   padding-top: 1em
+  &> li + li:before
+    content: "/"
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min)
