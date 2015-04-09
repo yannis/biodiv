@@ -1,7 +1,7 @@
 # Example: now to run unicorn, and monitor its child processes
 
 RUBY = '/Users/yannis/.rbenv/shims/ruby' # ruby on the server
-APP_PATH = '/var/www/biodiv_staging/current'
+APP_PATH = '/Users/yannis/railsapps/biodiv_staging/current'
 RAILS_ENV = 'staging'
 
 Eye.config do
@@ -16,7 +16,7 @@ Eye.application "biodiv_staging" do
 
   # env 'RBENV_ROOT' => '/usr/local/rbenv', 'PATH' => "/usr/local/rbenv/shims:/usr/local/rbenv/bin:#{ENV['PATH']}"
 
-  working_dir "/var/www/biodiv_staging/current"
+  working_dir "/Users/yannis/railsapps/biodiv_staging/current"
 
   process("unicorn") do
     uid "yannis"

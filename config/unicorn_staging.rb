@@ -1,6 +1,6 @@
 # Set environment to development unless something else is specified
 env = "staging"
-wd = "/var/www/biodiv_staging/current/"
+wd = "/Users/yannis/railsapps/biodiv_staging/current/"
 working_directory wd
 pid "#{wd}tmp/pids/biodiv_staging_unicorn.pid"
 stderr_path "#{wd}log/biodiv_staging_unicorn.stderr.log"
