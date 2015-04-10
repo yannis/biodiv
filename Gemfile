@@ -14,6 +14,9 @@ gem "bootstrap-sass"
 gem "autoprefixer-rails"
 gem "jquery-rails"
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 gem "devise"
 gem "activeadmin", github: "activeadmin"
 

@@ -7,6 +7,9 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find(params[:id])
     respond_to do |format|
       format.modal
+      format.pdf {
+        render  pdf: "project_#{@project.id}"
+      }
     end
   end
 end

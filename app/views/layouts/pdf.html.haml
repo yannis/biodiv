@@ -1,0 +1,17 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    = wicked_pdf_stylesheet_link_tag "pdf"
+    = wicked_pdf_javascript_include_tag "application"
+  %body
+    .container
+      .row.header
+        .col-md-4
+          = wicked_pdf_image_tag "UNIGE200.png"
+        .col-md-8
+          %h1
+            .small= t "title_1"
+            =raw t "title_2"
+    .container
+      = yield
