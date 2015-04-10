@@ -10,7 +10,7 @@ gem "haml-rails"
 gem 'sass-rails', '~> 5.0'
 gem 'compass-rails', '~> 2.0.4'
 gem "bootstrap-sass"
-gem "font-awesome-sass"
+# gem "font-awesome-sass"
 gem "autoprefixer-rails"
 gem "jquery-rails"
 

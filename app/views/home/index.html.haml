@@ -26,7 +26,7 @@
           .row
             .col-md-3
               - if institute.logo
-                = link_to institute.url do
+                = link_to institute.url, class: "img-link" do
                   = image_tag(institute.logo.picture.url, class: "home-institute-logo img-responsive")
             .col-md-9
               %p.home-institute-description=raw institute.description
@@ -43,7 +43,7 @@
     %h2.home-projects-title= t(".projects")
     - @projects.each do |project|
       .well.home-project
-        = link_to project_url(project, format: 'modal'), data: {toggle: "modal", target: "#modal"} do
+        = link_to project_path(project, format: 'modal'), data: {toggle: "modal", target: "#modal"} do
           %h4
             %small= project.laboratory.name
             %br= project.name

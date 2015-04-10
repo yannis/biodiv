@@ -22,6 +22,33 @@ $dropcap-bg: transparent !default
     background: $bg
     color: $color
 
+=add_fontawesome_before($icon)
+  @extend .fa
+  @extend .fa-#{$icon}
+  &:before
+    padding-right: 0.3em
+
+=add_fontawesome_after($icon)
+  font-family: inherit !important
+  &:after
+    @extend .fa
+    @extend .fa-#{$icon}:before
+    padding-left: 0.3em
+
+=add_glyphicon_before($icon)
+  @extend .glyphicon-#{$icon}
+  &:before
+    padding-right: 0.3em
+    @extend .glyphicon
+    font-size: 1em
+
+=add_glyphicon_after($icon)
+  &:after
+    @extend .glyphicon-#{$icon}:before
+    padding-left: 0.3em
+    @extend .glyphicon
+    font-size: 0.65em
+
 
 h1, h2, h3, h4, h5
   color: $biogreen
@@ -43,3 +70,44 @@ a:hover
 .drop-cap
   +dropcap($dropcap-float-position, $dropcap-font-size, $dropcap-font-family, $dropcap-txt-indent, $dropcap-margin, $dropcap-padding, $dropcap-color, $dropcap-line-height, $dropcap-bg)
 
+
+// =add_fontawesome_before($icon)
+//   @extend
+//   &:before
+//     padding-right: 0.3em
+//     @extend .glyphicon
+
+a
+  &:not(.img-link)[href^="http:"]
+    +add_glyphicon_after("new-window")
+    // // @extend .icon-music
+    // img
+    //   background-image: none
+    // &.link_to_more
+    //   background-image: none
+    //   border: 0
+  &[href^="mailto:"]
+    +add_glyphicon_before("envelope")
+  &[href*=".pdf"]
+    background: url('/assets/icons/pdf.png') no-repeat right center
+    padding: 2px 18px 2px 0
+  &[href*=".doc"]
+    background: url('/assets/icons/doc.png') no-repeat right center
+    padding: 2px 18px 2px 0
+  // &[href*=".rss"]
+  //   +add_glyphicon_before("rss")
+  &[href*=".rdf"]
+    background: url('/assets/icons/feed.png') no-repeat right center
+    margin: -2px 0
+    padding: 2px 22px 2px 0
+  &[href*=".xls"]
+    +add_glyphicon_before("list-alt")
+  &[href*=".csv"]
+    +add_glyphicon_before("list-alt")
+  &[href*=".ics"]
+    +add_glyphicon_before("calendar")
+//   &:focus
+//     -moz-outline: none
+//     outline: none
+// .highlight
+//   background: #ff0
