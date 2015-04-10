@@ -14,5 +14,5 @@
   =raw @project.description_html
 .modal-footer
   = link_to project_path(@project, format: :pdf), type: "button", class: "btn btn-primary", target: "_blank" do
-    %i.fa.fa-file-pdf-o
+    %span.glyphicon.glyphicon-save-file{aria: {hidden: "true"}}
     Downlad as PDF
