@@ -1,4 +1,4 @@
 WickedPdf.config = {
   layout: "pdf.html",
-  exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
+  exe_path: "/usr/local/bin/wkhtmltopdf"
 }
