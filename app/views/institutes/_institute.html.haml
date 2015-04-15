@@ -1,5 +1,8 @@
 .row.institute
-  .col-sm-12.col-md-4
+  .col-xs-12
+    %h3.institute-name
+      = link_to institute.name, institute.url, target: "_blank"
+  .hidden-sm.col-md-4
     - institute.illustrations.each do |illustration|
       = image_tag illustration.picture.url, class: 'img-responsive'
   .col-sm-12.col-md-8

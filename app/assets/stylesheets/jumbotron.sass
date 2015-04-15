@@ -5,9 +5,12 @@ a.unige_logo
   &:hover, &:active
     border: 0
 
-.jumbotron
+.container .jumbotron, .container-fluid .jumbotron
   background: white
   font-family: $font-family-title
+  // padding-left: 0
+  // padding-right: 0
+  margin-bottom: 0
   // padding-top: 0
   h1
     color: $biogreen
@@ -16,25 +19,31 @@ a.unige_logo
       color: $biogreen-lighter
   a, a:hover, a:active
     border: 0
+    text-decoration: none
+
+@media (max-width: $screen-sm-min)
+  .container .jumbotron, .container-fluid .jumbotron
+    text-align: center
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min)
-  nav
-    background-color: red
-  // .navbar-brand, .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
-  //   margin: 10px
+  // .container .jumbotron, .container-fluid .jumbotron
+  //   background: white
+  //   font-family: $font-family-title
+  //   padding-left: 0
+  //   padding-right: 0
+  //   margin-bottom: 0
 
-/* Medium devices (desktops, 992px and up) */
+@media (max-width: $screen-md-min)
+  .container .jumbotron, .container-fluid .jumbotron
+    padding-left: 0
+    padding-right: 0
+
+// /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min)
-  nav
-    background-color: yelow
-  // .navbar-brand, .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
-  //   margin-left: 10px
 
-// Large devices (large desktops, 1200px and up)
+// // Large devices (large desktops, 1200px and up)
 @media (min-width: $screen-lg-min)
-  nav
-    background-color: blue
 
 // @media (min-width: $screen-xlg-min)
 //   background-color: orange

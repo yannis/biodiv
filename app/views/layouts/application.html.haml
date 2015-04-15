@@ -31,16 +31,18 @@
     /         %li= locale_links
     .container
       .row
-        .col-sm-12.clearfix
+        .col-md-10.hidden-xs
           %ol.breadcrumb.pull-left
             %li= link_to t("navigation.unige"), "http://unige.ch"
             %li= link_to t("navigation.facsci"), "http://unige.ch/sciences"
             %li= link_to t("navigation.biolo"), "http://biologie.unige.ch"
+        .col-md-2
           = locale_links
-        .col-lg-2
+      .row
+        .col-md-3.col-lg-2
           %a.unige_logo{href: "http://unige.ch", target: "blank_", title: "Université de Genève"}
             Université de Genève
-        .col-lg-10
+        .col-md-9.col-lg-10
           .jumbotron
             %h1
               = link_to root_path do
@@ -48,7 +50,7 @@
                 =raw t "title_2"
     .container
       .row
-        .col-lg-12
+        .col-md-12
           = bootstrap_flash
       = yield
     #modal.modal.fade{tabindex: "-1", role: "dialog", aria: {labelledby: "myModalLabel", hidden: "true"}}
