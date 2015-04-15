@@ -31,7 +31,7 @@
             = image_tag illustration.picture.url, class: 'img-responsive'
         .col-sm-6.col-md-8
           .row
-            .col-xs-12.col-md-9
+            .col-xs-12
               %p.home-institute-description=raw institute.description
               - if institute.laboratories.present?
                 %h4= t("institutes.show.laboratories.title")
