@@ -2,6 +2,9 @@
   .col-md-8
     %p.lead.drop-cap
       = t ".intro"
+    = link_to "#projects", class: "btn btn-lg btn-primary pull-right" do
+      %span.glyphicon.glyphicon-arrow-right{aria: {hidden: "true"}}
+      = t(".call_to_action")
   - if @contacts.present?
     .col-md-4
       .panel.panel-default
@@ -38,7 +41,7 @@
                       = link_to laboratory.name, laboratory.url, {target: "_blank"}
 
 
-.row.home-projects
+.row#projects.home-projects
   .col-md-12
     %h2.home-projects-title= t(".projects")
     - @projects.each do |project|
