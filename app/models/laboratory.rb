@@ -8,7 +8,7 @@ class Laboratory < ActiveRecord::Base
   validates_uniqueness_of :name_fr
 
   before_validation :set_name
-  before_save :format_address
+  # before_save :format_address
 private
 
   def set_name

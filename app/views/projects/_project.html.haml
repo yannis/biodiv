@@ -3,5 +3,6 @@
     %h3= project.name
     %p
       = link_to project.laboratory.name, project.laboratory.url
-      %br=raw project.laboratory.address
+      %br= link_to project.laboratory.institute.name, project.laboratory.institute.url
+      =raw project.laboratory.address.gsub("\n", "<br />")
     = raw project.description_html

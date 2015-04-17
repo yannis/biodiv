@@ -9,8 +9,9 @@
 .modal-body
   %p
     = link_to @project.laboratory.name, @project.laboratory.url
+    %br= link_to @project.laboratory.institute.name, @project.laboratory.institute.url
     - if @project.laboratory.address
-      %br=raw @project.laboratory.address
+      %br=raw @project.laboratory.address.gsub!("\n", "<br />")
   =raw @project.description_html
 .modal-footer
   = link_to project_path(@project, format: :pdf), type: "button", class: "btn btn-primary", target: "_blank" do
