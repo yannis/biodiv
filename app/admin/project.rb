@@ -26,6 +26,7 @@ ActiveAdmin.register Project do
     # f.object.errors
     # # f.semantic_errors *f.object.errors.keys
     f.inputs "Details" do
+      f.input :laboratory
       f.input :name_en
       f.input :name_fr
       f.input :description_en
