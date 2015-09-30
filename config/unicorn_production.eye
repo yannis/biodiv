@@ -34,7 +34,7 @@ Eye.application APPLICATION_NAME do
   process :unicorn do
     pid_file "tmp/pids/biodiv_production_unicorn.pid"
 
-    start_command "bundle exec unicorn -c config/unicorn_production.rb -E production -D"
+    start_command "/Users/yannis/.rbenv/shims/bundle exec unicorn -c config/unicorn_production.rb -E production -D"
     # Tell unicorn to finish his current requests, wait a little and then kill it.
     stop_signals [:QUIT, 10.seconds, :TERM]
     # Unicorn will restart the binary itself.
